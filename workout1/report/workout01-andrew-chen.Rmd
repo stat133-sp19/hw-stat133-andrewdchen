@@ -1,5 +1,5 @@
 ---
-title: "workout-01"
+title: "workout-01: GSW Shot Charts"
 output: github_document
 ---
 
@@ -7,7 +7,12 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+## 2.1 Downloading Data
 ```{r}
 download.file('https://raw.githubusercontent.com/ucb-stat133/stat133-hws/master/data/andre-iguodala.csv', '../data/andre-iguodala.csv')
+download.file('https://github.com/ucb-stat133/stat133-hws/blob/master/data/draymond-green.csv', '../data/draymond-green.csv')
+download.file('https://github.com/ucb-stat133/stat133-hws/blob/master/data/kevin-durant.csv', '../data/kevin-durant.csv')
+download.file('https://github.com/ucb-stat133/stat133-hws/blob/master/data/klay-thompson.csv', '../data/klay-thompson.csv')
+download.file('https://github.com/ucb-stat133/stat133-hws/blob/master/data/stephen-curry.csv', '../data/stephen-curry.csv')
 ```
 
