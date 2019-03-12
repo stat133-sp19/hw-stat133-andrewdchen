@@ -1,0 +1,13 @@
+---
+title: "workout-01"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+download.file('https://raw.githubusercontent.com/ucb-stat133/stat133-hws/master/data/andre-iguodala.csv', '../data/andre-iguodala.csv')
+```
+
