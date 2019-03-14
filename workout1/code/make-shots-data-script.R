@@ -1,8 +1,8 @@
 ##################################################
 ## Title: Make Shots Data Script
-## Description:
-## Inputs:
-## Outpus:
+## Description: Preprocessing nba data
+## Inputs: csv files
+## Outpus: txt and csv files
 ##################################################
 
 library(utils)
@@ -38,7 +38,7 @@ green$shot_made_flag[green$shot_made_flag == "n"] = "shot_no"
 #Add minute column
 curry <- curry %>% mutate(minute = 12*period - minutes_remaining)
 durant <- durant %>% mutate(minute = 12*period - minutes_remaining)
-green <- curry %>% mutate(minute = 12*period - minutes_remaining)
+green <- green %>% mutate(minute = 12*period - minutes_remaining)
 thompson <- thompson %>% mutate(minute = 12*period - minutes_remaining)
 iguodala <- iguodala %>% mutate(minute = 12*period - minutes_remaining)
 

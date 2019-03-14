@@ -1,5 +1,6 @@
 ---
-title: "workout-01: GSW Shot Charts"
+title: "Workout 1"
+author: "Andrew Chen"
 output: github_document
 ---
 
@@ -8,31 +9,47 @@ knitr::opts_chunk$set(echo = TRUE)
 library(dplyr)
 ```
 
-## 2.1 Downloading Data
+# Data-based analysis of the five best GSW players!!
+***
+
+![Alt](../images/nbareport.jpeg "Title")
+
+> Take Home Message: If you do not have the time to read this article, just remember that the strength of the GSW stems from their diverse collection of skills. And that for the next season, Draymond Green should pass the ball more. 
+
+*Intro*
+The Golden State warriors have been so dominant. But why? They have good players, they are lucky, they are good at teamwork... these are all hypotheses and for a statistician, we need to test these hypotheses using data! In this report I will analyze some nba data from the 2016 season, and analyze quantitatively what makes the golden state warriors so special. In the process I will practice my data cleaning, data analysis, and the more meta data skills like using git, command line, exporting/writing data, and organizing files well. Killing two birds with one stone! Great!
+
+*Data and Analysis*
+
+All data that I will be working with has been prepared, cleaned, and processed into a csv file called shots-data.csv.
 ```{r}
-download.file('https://raw.githubusercontent.com/ucb-stat133/stat133-hws/master/data/andre-iguodala.csv', '../data/andre-iguodala.csv')
-download.file('https://raw.githubusercontent.com/ucb-stat133/stat133-hws/master/data/draymond-green.csv', '../data/draymond-green.csv')
-download.file('https://raw.githubusercontent.com/ucb-stat133/stat133-hws/master/data/kevin-durant.csv', '../data/kevin-durant.csv')
-download.file('https://raw.githubusercontent.com/ucb-stat133/stat133-hws/master/data/klay-thompson.csv', '../data/klay-thompson.csv')
-download.file('https://raw.githubusercontent.com/ucb-stat133/stat133-hws/master/data/stephen-curry.csv', '../data/stephen-curry.csv')
+combined <- read.csv("../data/shots-data.csv", header = TRUE)
+head(combined)
 ```
 
+I filtered, grouped, and summarized this table so that I only had a row for each player.
 ```{r}
-curry <- read.csv("../data/stephen-curry.csv", header = T, stringsAsFactors = F)
-green <- read.csv("../data/draymond-green.csv", header = T, stringsAsFactors = F)
-iguodala <- read.csv("../data/andre-iguodala.csv", header = T, stringsAsFactors = F)
-durant <- read.csv("../data/kevin-durant.csv", header = T, stringsAsFactors = F)
-thompson <- read.csv("../data/klay-thompson.csv", header = T, stringsAsFactors = F)
+combined %>% filter(shot_type == "2PT Field Goal") %>% group_by(name) %>% summarize(total = n(), made = sum(shot_made_flag == "shot_yes"), perc_made = made/total)
 ```
+This table is surprising because it show that Iguodala has a high percentage of 2PT field goals, higher than the sharp shooters Stephen Curry and Klay Thompson. Why is this the case? I do not have data on this, but perhaps it may be because of Iguodala's build - that is his build is more suited to close play under the basket. If I had data on height or strength, I could do a linear regression analysis to determine whether height or strength is correlated wth a higher percentage of 2 point field goals.
 
 ```{r}
-curry %>% mutate(name = "Stephen Curry")
-green %>% mutate(name = "Draymond Green")
-iguodala %>% mutate(name = "Andre Iguodala")
-durant %>% mutate(name = "Kevin Durant")
-thompson %>% mutate(name = "Klay Thompson")
+combined %>% filter(shot_type == "3PT Field Goal") %>% group_by(name) %>% summarize(total = n(), made = sum(shot_made_flag == "shot_yes"), perc_made = made/total)
 ```
-```{r}
-curry[]
-```
+This table is less surprising because it tells us what we already know, that Stephen Curry and Klay Thompson are good 3 point shooters. 
 
+```{r}
+combined %>% group_by(name) %>% summarize(total = n(), made = sum(shot_made_flag == "shot_yes"), perc_made = made/total)
+```
+This table is also surprising, because it tells us that overall, Durant and Iguodala have the highest percentage made number of shots. It also reveals that Draymond Green is perhaps not carrying his weight, despite making close to 600 shots, he has converted a comparatively low percentage of them. So perhaps it is a better idea to give the ball more often to Iguodala, Durant, Curry and Thompson to maximize points scored. 
+
+![Alt](../images/gsw-shot-charts.png "Title")
+This plot tells us information about each shot taken by each of the five players during the 2016 season. Green dots denote shots that went in, and red dots denote shots that did not go in. This graphic supports the hypothesis that we found through the tables. It confirms similar ideas that we formulated from the tables, that 
+- Curry and Thompson take many three points and make a good amount of them
+- Iguodala and Durant make a lot of shots in general, there's a lot of green dots on their plots. 
+- Draymond Green doesn't make a lot of shots compared to his peers. 
+Additionally these plots reveal that Stephen Curry makes a few shots from far outside the three point circle, although he misses the majority of those. 
+
+# Discussion and Conclusions
+
+The GSW is successful because it's core five members have a diverse set of skills. Iguodala specializes in high percentage 2 point field goals, Stephen Curry and Klay Thompson are very good at converting three pointer shots, and Kevin Durant has a wide breadth of skills proving that he was a wise purchase. Draymond Green is less good at shooting, depsite making over 600 shots in the 2016 season. In the next season, it might be worth trying to encourage Draymond Green to pass the ball to his peers more so that they can score more points.
