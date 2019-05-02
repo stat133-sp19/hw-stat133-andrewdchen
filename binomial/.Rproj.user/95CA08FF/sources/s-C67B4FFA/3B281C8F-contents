@@ -1,0 +1,86 @@
+---
+title: "Introduction to package binomial"
+author: "Andrew Chen"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to Binomial}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(binomial)
+```
+
+> This package contains various functions related to binomial random variables. 
+
+## Binomial choose
+```{r}
+#Same as 4 choose 2
+bin_choose(n = 4,k = 2)
+```
+
+## Binomial probability
+```{r}
+#Same as the probability of flipping two coins in 4 trials with a fair coin
+bin_probability(success = 2,trials = 4,prob = 0.5)
+```
+
+## Binomial distribution & plotting
+```{r}
+# example of binomial probability distribution
+bin_distribution(trials = 5, prob = 0.5)
+```
+
+```{r}
+# We can plot the binomial probability distribution object as a histogram
+dis1 <- bin_distribution(trials = 5, prob = 0.5)
+plot(dis1)
+```
+
+## Binomial Cumulative & plotting
+```{r}
+# Similar to bin_distribution but has additional column that calculates the CDF
+bin_cumulative(trials = 5, prob = 0.5)
+```
+
+```{r}
+# We can plot the binomial cumulative distribution object 
+dis2 <- bin_cumulative(trials = 5, prob = 0.5)
+plot(dis2)
+```
+
+## Binomial Variable & Summary
+```{r}
+bin1 <- bin_variable(trials = 10, p = 0.3)
+bin1
+```
+
+```{r}
+#summary of binomial variables provides more information like skewness, kurtosis, mode, variance, mean. And we can print the summary object as follows
+
+binsum1 <- summary(bin1)
+binsum1
+```
+
+## Measures
+
+
+```{r}
+bin_mean(trials = 10, prob = 0.3)
+```
+```{r}
+bin_variance(trials = 10, prob = 0.3)
+```
+```{r}
+bin_mode(trials = 10,prob =  0.3)
+```
+```{r}
+bin_skewness(trials = 10,prob =  0.3)
+```
+```{r}
+bin_kurtosis(trials = 10,prob =  0.3)
+```
+

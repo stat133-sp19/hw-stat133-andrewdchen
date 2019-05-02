@@ -1,0 +1,13 @@
+ls
+]0;~/Dropbox/Cal/junior year/Stat 133/binomial[?1034h(base) AndrewD:binomial andrewchen$ ls
+DESCRIPTION	NAMESPACE	R		binomial.Rproj	man
+]0;~/Dropbox/Cal/junior year/Stat 133/binomial(base) AndrewD:binomial andrewchen$ mkdir tests
+]0;~/Dropbox/Cal/junior year/Stat 133/binomial(base) AndrewD:binomial andrewchen$ ls
+DESCRIPTION	NAMESPACE	R		binomial.Rproj	man		tests
+]0;~/Dropbox/Cal/junior year/Stat 133/binomial(base) AndrewD:binomial andrewchen$ cd tests
+]0;~/Dropbox/Cal/junior year/Stat 133/binomial/tests(base) AndrewD:tests andrewchen$ mkdir testthat
+]0;~/Dropbox/Cal/junior year/Stat 133/binomial/tests(base) AndrewD:tests andrewchen$ ls
+testthat
+]0;~/Dropbox/Cal/junior year/Stat 133/binomial[?1034h(base) calvisitor-10-105-161-34:binomial andrewchen$ ls
+DESCRIPTION	NAMESPACE	R		binomial.Rproj	man		tests
+]0;~/Dropbox/Cal/junior year/Stat 133/binomial[?1034h(base) calvisitor-10-105-161-34:binomial andrewchen$ 

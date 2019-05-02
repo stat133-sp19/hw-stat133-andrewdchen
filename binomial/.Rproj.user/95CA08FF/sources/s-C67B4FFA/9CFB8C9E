@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1556832147620.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "9CFB8C9E",
+    "lastKnownWriteTime" : 1556832250,
+    "last_content_update" : 1556832250762,
+    "path" : "~/Dropbox/Cal/junior year/Stat 133/binomial/tests/testthat/test-summarys.R",
+    "project_path" : "tests/testthat/test-summarys.R",
+    "properties" : {
+        "cursorPosition" : "27,34",
+        "scrollLine" : "12"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
